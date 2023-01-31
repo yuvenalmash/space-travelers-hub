@@ -1,22 +1,25 @@
-const Rocket = () => {
-  console.log('book added');
+/* eslint-disable camelcase */
+import PropTypes from 'prop-types';
+import styles from './css/Rocket.module.scss';
+
+const Rocket = (props) => {
+  const { rocket } = props;
+  const { name, description, img } = rocket;
   return (
-    <div>
-      <img src="" alt="rockets" />
-      <div>
-        <h2>Title</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
-        </p>
+    <div className={styles.rocketContainer}>
+      <img src={img} alt="rocket img" className={styles.rocketImg} />
+      <div className={styles.col2}>
+        <h2>{name}</h2>
+        <p>{description}</p>
         <button type="button">Reserve Rocket</button>
         <button type="button">Cancel Reservation</button>
       </div>
     </div>
   );
 };
+
+Rocket.propTypes = {
+  rocket: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+
 export default Rocket;
