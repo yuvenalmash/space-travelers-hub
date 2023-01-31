@@ -1,18 +1,26 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import Rocket from './Rocket';
+import { fetchRockets, selectAllRockets, selectState } from '../../redux/rockets/rocketsSlice';
+import styles from './css/RocketsList.module.scss';
 
 const RocketsList = () => {
-  const rockets = [];
+  const dispatch = useDispatch();
+  const status = useSelector(selectState);
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchRockets());
+    }
+  });
+  const rockets = useSelector(selectAllRockets);
   return (
-    <ul>
-      {rockets.map((rocket) => {
-        console.log('rocket');
-        return (
-          <Rocket
-            key={rocket.id}
-            rocket={rocket}
-          />
-        );
-      })}
+    <ul className={styles.rocketsList}>
+      {rockets.map((rocket) => (
+        <Rocket
+          key={rocket.id}
+          rocket={rocket}
+        />
+      ))}
     </ul>
   );
 };
