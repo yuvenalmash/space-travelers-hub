@@ -18,9 +18,10 @@ const missionsSlice = createSlice({
   name: 'missions',
   initialState,
   reducers: {
-    joinMission: () => console.log('join mission'),
-
-    leaveMission: () => console.log('leave mission'),
+    // eslint-disable-next-line
+    joinMission: () => console.log("join mission"),
+    // eslint-disable-next-line
+    leaveMission: () => console.log("leave mission"),
   },
 
   extraReducers: (builder) => {
