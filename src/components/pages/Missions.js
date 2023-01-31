@@ -1,3 +1,9 @@
-const Missions = () => <p>Hello Missions</p>;
+import MissionsList from '../missions/MissionList';
+
+const Missions = () => (
+  <>
+    <MissionsList />
+  </>
+);
 
 export default Missions;
