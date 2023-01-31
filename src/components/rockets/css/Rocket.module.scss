@@ -1,0 +1,17 @@
+.rocketContainer {
+  display: flex;
+  gap: 12px
+}
+
+.rocketImg {
+  width: 200px
+}
+
+.col2 {
+  display: flex;
+  flex-direction: column;
+
+  button {
+    width: fit-content;
+  }
+}
