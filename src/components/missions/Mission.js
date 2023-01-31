@@ -1,12 +1,14 @@
+/* eslint-disable camelcase */
 import PropTypes from 'prop-types';
+import './css/Mission.css';
 
 const Mission = (props) => {
   const { mission } = props;
-  const { name, description } = mission;
+  const { mission_name, description } = mission;
 
   return (
-    <div>
-      <h1>{name}</h1>
+    <div className="mission-list">
+      <h1>{mission_name}</h1>
       <p>{description}</p>
       <button type="button"> Join Mission</button>
     </div>
@@ -15,7 +17,7 @@ const Mission = (props) => {
 
 Mission.propTypes = {
   mission: PropTypes.shape({
-    name: PropTypes.string,
+    mission_name: PropTypes.string,
     description: PropTypes.string,
   }).isRequired,
 };
