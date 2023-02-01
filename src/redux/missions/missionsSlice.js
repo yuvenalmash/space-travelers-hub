@@ -19,16 +19,22 @@ const missionsSlice = createSlice({
   initialState,
   reducers: {
     joinMission: (state, action) => {
+      const id = action.payload;
+      const newContents = state.contents.map((mission) => {
+        if (mission.mission_id !== id) return mission;
+        return { ...mission, reserved: true };
+      });
+      return { ...state, contents: newContents };
+    },
+    leaveMission: (state, action) => {
       const { id } = action.payload;
       const newState = { ...state };
       if (newState.mission_id === id) {
-        newState.mission_id = { ...newState.mission_id, reserved: true };
+        newState.mission_id = { ...newState.mission_id, reserved: false };
       }
+      console.log('Leave Mission Action:', state);
       return newState;
     },
-
-    // eslint-disable-next-line
-    leaveMission: () => console.log('leave mission'),
   },
 
   extraReducers: (builder) => {
@@ -53,7 +59,7 @@ const missionsSlice = createSlice({
       });
   },
 });
-export const { joinMission } = missionsSlice.actions;
+export const { joinMission, leaveMission } = missionsSlice.actions;
 export const selectAllMissions = (state) => state.missions.contents;
 export const selectState = (state) => state.missions.status;
 

@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import './css/Mission.css';
 import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
-import { joinMission } from '../../redux/missions/missionsSlice';
+// import store from '../../redux/ConfigureStore';
+import { joinMission, leaveMission } from '../../redux/missions/missionsSlice';
 
-const Mission = (props) => {
+const Mission = props => {
   const { mission } = props;
   const { mission_id, mission_name, description } = mission;
   const dispatch = useDispatch();
@@ -14,7 +15,13 @@ const Mission = (props) => {
 
   const handleJoinMission = () => {
     dispatch(joinMission({ id: mission_id }));
+    // console.log(store.getState());
     setSuccess(true);
+  };
+
+  const handleLeaveMission = () => {
+    dispatch(leaveMission({ id: mission_id }));
+    // console.log(store.getState());
   };
 
   return (
@@ -27,17 +34,13 @@ const Mission = (props) => {
       {success && (
         <p className="success-message">Successfully joined the mission! 🚀</p>
       )}
+
+      <button type="button" onClick={handleLeaveMission}>
+        Leave Mission
+      </button>
     </div>
   );
 };
-
-// Mission.propTypes = {
-//   mission: PropTypes.shape({
-//     mission_id: PropTypes.number.isRequired,
-//     mission_name: PropTypes.string,
-//     description: PropTypes.string,
-//   }).isRequired,
-// };
 
 Mission.propTypes = {
   mission: PropTypes.shape({

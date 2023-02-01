@@ -5,11 +5,9 @@ import { useDispatch } from 'react-redux';
 import styles from './css/Rocket.module.scss';
 import { makeReservation } from '../../redux/rockets/rocketsSlice';
 
-const Rocket = (props) => {
+const Rocket = props => {
   const { rocket } = props;
-  const {
-    id, name, description, flickr_images,
-  } = rocket;
+  const { id, name, description, flickr_images } = rocket;
   const dispatch = useDispatch();
 
   const handleReservation = () => {
@@ -23,10 +21,7 @@ const Rocket = (props) => {
       <div className={styles.col2}>
         <h2>{name}</h2>
         <p>{description}</p>
-        <button
-          type="button"
-          onClick={(handleReservation)}
-        >
+        <button type="button" onClick={handleReservation}>
           Reserve Rocket
         </button>
         <button type="button">Cancel Reservation</button>
