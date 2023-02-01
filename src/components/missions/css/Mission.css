@@ -59,7 +59,7 @@ tr:nth-child(odd) {
 
 .not__member {
   text-transform: uppercase;
-  background-color: #999999;
+  background-color: #999;
   color: white;
   font-size: 16px;
 }
