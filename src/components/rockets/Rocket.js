@@ -23,10 +23,7 @@ const Rocket = (props) => {
       <div className={styles.col2}>
         <h2>{name}</h2>
         <p>{description}</p>
-        <button
-          type="button"
-          onClick={(handleReservation)}
-        >
+        <button type="button" onClick={handleReservation}>
           Reserve Rocket
         </button>
         <button type="button">Cancel Reservation</button>
