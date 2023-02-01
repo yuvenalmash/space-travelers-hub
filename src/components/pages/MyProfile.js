@@ -1,5 +1,9 @@
+import MyProfileLists from '../myProfile/MyProfileLists';
+
 const MyProfile = () => (
-  <p>Hello My Profile!</p>
+  <>
+    <MyProfileLists />
+  </>
 );
 
 export default MyProfile;
