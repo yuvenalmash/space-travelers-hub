@@ -32,6 +32,7 @@ const missionsSlice = createSlice({
       if (newState.mission_id === id) {
         newState.mission_id = { ...newState.mission_id, reserved: false };
       }
+      // eslint-disable-next-line
       console.log('Leave Mission Action:', state);
       return newState;
     },

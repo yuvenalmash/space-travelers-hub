@@ -5,9 +5,11 @@ import { useDispatch } from 'react-redux';
 import styles from './css/Rocket.module.scss';
 import { makeReservation } from '../../redux/rockets/rocketsSlice';
 
-const Rocket = props => {
+const Rocket = (props) => {
   const { rocket } = props;
-  const { id, name, description, flickr_images } = rocket;
+  const {
+    id, name, description, flickr_images,
+  } = rocket;
   const dispatch = useDispatch();
 
   const handleReservation = () => {

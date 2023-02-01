@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 // import store from '../../redux/ConfigureStore';
 import { joinMission, leaveMission } from '../../redux/missions/missionsSlice';
 
-const Mission = props => {
+const Mission = (props) => {
   const { mission } = props;
   const { mission_id, mission_name, description } = mission;
   const dispatch = useDispatch();
