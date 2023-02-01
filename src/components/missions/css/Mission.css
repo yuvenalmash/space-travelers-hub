@@ -7,8 +7,9 @@
 }
 
 .mission-table {
-  width: 100%;
+  width: 80%;
   border-collapse: collapse;
+  margin: 50px;
 }
 
 .mission-table th,
@@ -33,6 +34,9 @@
 
 .mission-table td:first-child {
   text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  width: 15%;
 }
 
 tr:nth-child(odd) {
@@ -40,7 +44,7 @@ tr:nth-child(odd) {
 }
 
 .mission-table td:nth-child(3) {
-  width: 10%;
+  width: 15%;
 }
 
 .btn {
