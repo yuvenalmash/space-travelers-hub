@@ -25,20 +25,33 @@ const Mission = (props) => {
   };
 
   return (
-    <div className="mission-list">
-      <h1>{mission_name}</h1>
-      <p>{description}</p>
-      <button type="button" onClick={handleJoinMission}>
-        Join Mission
-      </button>
-      {success && (
-        <p className="success-message">Successfully joined the mission! 🚀</p>
-      )}
-
-      <button type="button" onClick={handleLeaveMission}>
-        Leave Mission
-      </button>
-    </div>
+    <tr>
+      <td>{mission_name}</td>
+      <td>{description}</td>
+      <td>
+        <p className="not__member">Not a member</p>
+        <p className="active__member">Active member</p>
+      </td>
+      <td>
+        <button
+          className=" btn success__button"
+          type="button"
+          onClick={handleJoinMission}
+        >
+          Join Mission
+        </button>
+        {success && (
+          <p className="success-message">Successfully joined the mission! 🚀</p>
+        )}
+        <button
+          className="btn failure__button"
+          type="button"
+          onClick={handleLeaveMission}
+        >
+          Leave Mission
+        </button>
+      </td>
+    </tr>
   );
 };
 

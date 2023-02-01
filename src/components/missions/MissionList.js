@@ -17,11 +17,21 @@ const MissionsList = () => {
   }, [dispatch, status]);
   const missions = useSelector(selectAllMissions);
   return (
-    <ul>
-      {missions.map((mission) => (
-        <Mission key={mission.mission_id} mission={mission} />
-      ))}
-    </ul>
+    <table className="mission-table">
+      <thead>
+        <tr>
+          <th>Mission</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        {missions.map((mission) => (
+          <Mission key={mission.mission_id} mission={mission} />
+        ))}
+      </tbody>
+    </table>
   );
 };
 export default MissionsList;
