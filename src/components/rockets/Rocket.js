@@ -2,15 +2,15 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-// import store from '../../redux/ConfigureStore';
 import styles from './css/Rocket.module.scss';
-import { makeReservation } from '../../redux/rockets/rocketsSlice';
+import { makeReservation, cancelReservation } from '../../redux/rockets/rocketsSlice';
 
-const Button = ({ func = null, isReserved = null }) => {
+const Button = ({ isReserved, id }) => {
+  const dispatch = useDispatch();
   if (isReserved) {
-    return <button type="button">Cancel Reservation</button>;
+    return <button type="button" onClick={() => dispatch(cancelReservation(id))}>Cancel Reservation</button>;
   }
-  return <button type="button" onClick={func}>Reserve Rocket</button>;
+  return <button type="button" onClick={() => dispatch(makeReservation(id))}>Reserve Rocket</button>;
 };
 
 const Rocket = (props) => {
@@ -18,12 +18,6 @@ const Rocket = (props) => {
   const {
     id, name, description, flickr_images, reserved,
   } = rocket;
-  const dispatch = useDispatch();
-
-  const handleReservation = () => {
-    dispatch(makeReservation(id));
-    // console.log(store.getState());
-  };
 
   return (
     <div className={styles.rocketContainer}>
@@ -31,10 +25,7 @@ const Rocket = (props) => {
       <div className={styles.col2}>
         <h2>{name}</h2>
         <p>{description}</p>
-        <Button
-          func={handleReservation}
-          isReserved={reserved}
-        />
+        <Button id={id} isReserved={reserved} />
       </div>
     </div>
   );
