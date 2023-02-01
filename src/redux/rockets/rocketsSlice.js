@@ -26,10 +26,14 @@ const rocketsSlice = createSlice({
       });
       return { ...state, contents: newContents };
     },
-    cancelReservation: () => (
-      // eslint-disable-next-line
-      console.log('cancel reservation')
-    ),
+    cancelReservation: (state, action) => {
+      const id = action.payload;
+      const newContents = state.contents.map((rocket) => {
+        if (rocket.id !== id) return rocket;
+        return { ...rocket, reserved: false };
+      });
+      return { ...state, contents: newContents };
+    },
   },
   extraReducers: (builder) => {
     builder
