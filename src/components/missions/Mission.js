@@ -28,7 +28,10 @@ const Mission = (props) => {
     <tr>
       <td>{mission_name}</td>
       <td>{description}</td>
-      <td />
+      <td>
+        <p className="not__member">Not a member</p>
+        <p className="active__member">Active member</p>
+      </td>
       <td>
         <button
           className=" btn success__button"

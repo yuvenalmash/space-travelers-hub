@@ -56,3 +56,24 @@ tr:nth-child(odd) {
   color: red;
   border-color: red;
 }
+
+.not__member {
+  text-transform: uppercase;
+  background-color: #999999;
+  color: white;
+  font-size: 16px;
+}
+
+.active__member {
+  text-transform: capitalize;
+  color: #fff;
+  background-color: #00b300;
+}
+
+.active__member,
+.not__member {
+  border-radius: 5px;
+  padding: 4px;
+  display: inline-block;
+  font-weight: bold;
+}
