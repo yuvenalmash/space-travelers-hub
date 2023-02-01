@@ -7,8 +7,9 @@ import styles from './css/RocketsList.module.scss';
 const RocketsList = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectState);
+  const contents = useSelector((state) => state.rockets.contents);
   useEffect(() => {
-    if (status === 'idle') {
+    if (contents.length === 0 && status === 'idle') {
       dispatch(fetchRockets());
     }
   });
