@@ -18,10 +18,14 @@ const rocketsSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {
-    makeReservation: () => (
-      // eslint-disable-next-line
-      console.log('make reservation')
-    ),
+    makeReservation: (state, action) => {
+      const id = action.payload;
+      const newContents = state.contents.map((rocket) => {
+        if (rocket.id !== id) return rocket;
+        return { ...rocket, reserved: true };
+      });
+      return { ...state, contents: newContents };
+    },
     cancelReservation: () => (
       // eslint-disable-next-line
       console.log('cancel reservation')
@@ -39,17 +43,16 @@ const rocketsSlice = createSlice({
           const {
             id, name, description, flickr_images,
           } = element;
-          const img = flickr_images[0];
           rocketsList.push({
-            id, name, description, img,
+            id, name, description, flickr_images, reserved: false,
           });
         });
-        return { ...state, contents: rocketsList };
+        return { ...state, contents: rocketsList, status: 'idle' };
       });
   },
 });
 
 export const selectAllRockets = (state) => state.rockets.contents;
 export const selectState = (state) => state.rockets.status;
-
+export const { makeReservation, cancelReservation } = rocketsSlice.actions;
 export default rocketsSlice.reducer;
