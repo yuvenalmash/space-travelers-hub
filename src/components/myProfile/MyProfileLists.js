@@ -3,13 +3,9 @@ import { useSelector } from 'react-redux';
 import { selectAllRockets } from '../../redux/rockets/rocketsSlice';
 import { selectAllMissions } from '../../redux/missions/missionsSlice';
 
-const RocketItem = ({ rocketName }) => (
-  <li>{rocketName}</li>
-);
+const RocketItem = ({ rocketName }) => <li>{rocketName}</li>;
 
-const MissionItem = ({ missionName }) => (
-  <li>{missionName}</li>
-);
+const MissionItem = ({ missionName }) => <li>{missionName}</li>;
 
 const MyProfileLists = () => {
   const rockets = useSelector(selectAllRockets);
@@ -23,8 +19,8 @@ const MyProfileLists = () => {
         <ul>
           {joinedMissions.map((mission) => (
             <MissionItem
-              key={mission.id}
-              missionName={mission.name}
+              key={mission.mission_id}
+              missionName={mission.mission_name}
             />
           ))}
         </ul>
@@ -33,10 +29,7 @@ const MyProfileLists = () => {
         <h2>My Rockets</h2>
         <ul>
           {reservedRockets.map((rocket) => (
-            <RocketItem
-              key={rocket.id}
-              rocketName={rocket.name}
-            />
+            <RocketItem key={rocket.id} rocketName={rocket.name} />
           ))}
         </ul>
       </section>
