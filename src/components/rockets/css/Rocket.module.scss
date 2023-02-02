@@ -17,23 +17,25 @@
 }
 
 .reserve__btn {
-  padding: 8px 10px;
+  padding: 8px 16px;
   color: #fff;
-  background-color: #2b65ec;
+  background-color: #1f75fe;
   border-radius: 4px;
   outline: none;
   border: 1px solid #000;
   cursor: pointer;
+  margin-top: 8px;
 }
 
 .cancel__btn {
-  padding: 8px 10px;
+  padding: 8px 16px;
   background-color: #fff;
   color: black;
   border-radius: 4px;
   outline: none;
   border: 1px solid #000;
   cursor: pointer;
+  margin-top: 8px;
 }
 
 .reservedText {
