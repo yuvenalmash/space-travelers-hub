@@ -7,6 +7,7 @@ exports[`Display Rocket component it matches snapshot 1`] = `
   <img
     alt="rocket img"
     className="rocketImg"
+    src="img2"
   />
   <div
     className="col2"

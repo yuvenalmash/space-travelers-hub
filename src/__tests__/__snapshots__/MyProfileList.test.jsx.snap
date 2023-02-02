@@ -1,18 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Display myProfileList component it matches snapshot 1`] = `
-Array [
-  <section>
+<div
+  style={
+    Object {
+      "display": "flex",
+      "gap": "24px",
+    }
+  }
+>
+  <section
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
     <h2>
       My Missions
     </h2>
-    <ul />
-  </section>,
-  <section>
+    <ul
+      className="myprofile__list"
+    />
+  </section>
+  <section
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
     <h2>
       My Rockets
     </h2>
-    <ul />
-  </section>,
-]
+    <ul
+      className="myprofile__list"
+    />
+  </section>
+</div>
 `;
