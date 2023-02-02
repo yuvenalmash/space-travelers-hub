@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchMissions = createAsyncThunk(
@@ -53,13 +52,14 @@ const missionsSlice = createSlice({
 
         const missionsList = [];
         data.forEach((element) => {
-          const { mission_id, mission_name, description } = element;
-          missionsList.push({
-            mission_id,
-            mission_name,
-            description,
-            joined: false,
-          });
+          // const { mission_id, mission_name, description } = element;
+          // missionsList.push({
+          //   mission_id,
+          //   mission_name,
+          //   description,
+          //   joined: false,
+          // });
+          missionsList.push({ ...element, joined: false });
         });
         return { ...state, contents: missionsList, status: 'idle' };
       });

@@ -1,11 +1,10 @@
-/* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import './css/Mission.css';
 import { useDispatch } from 'react-redux';
 
 import { joinMission, leaveMission } from '../../redux/missions/missionsSlice';
 
-const Button = ({ isJoined, mission_id }) => {
+const Button = ({ isJoined, missionId }) => {
   const dispatch = useDispatch();
 
   if (isJoined) {
@@ -13,7 +12,7 @@ const Button = ({ isJoined, mission_id }) => {
       <button
         className="btn failure__button"
         type="button"
-        onClick={() => dispatch(leaveMission(mission_id))}
+        onClick={() => dispatch(leaveMission(missionId))}
       >
         Leave Mission
       </button>
@@ -23,7 +22,7 @@ const Button = ({ isJoined, mission_id }) => {
     <button
       className=" btn success__button"
       type="button"
-      onClick={() => dispatch(joinMission(mission_id))}
+      onClick={() => dispatch(joinMission(missionId))}
     >
       Join Mission
     </button>
@@ -31,20 +30,17 @@ const Button = ({ isJoined, mission_id }) => {
 };
 const Mission = (props) => {
   const { mission } = props;
-  const {
-    mission_id, mission_name, description, joined,
-  } = mission;
 
   return (
     <tr>
-      <td>{mission_name}</td>
-      <td>{description}</td>
+      <td>{mission.mission_name}</td>
+      <td>{mission.description}</td>
       <td>
-        {!joined && <p className="not__member">Not a member</p>}
-        {joined && <p className="active__member">Active member</p>}
+        {!mission.joined && <p className="not__member">Not a member</p>}
+        {mission.joined && <p className="active__member">Active member</p>}
       </td>
       <td>
-        <Button mission_id={mission_id} isJoined={joined} />
+        <Button missionId={mission.mission_id} isJoined={mission.joined} />
       </td>
     </tr>
   );
@@ -60,7 +56,7 @@ Mission.propTypes = {
 };
 Button.propTypes = {
   isJoined: PropTypes.bool.isRequired,
-  mission_id: PropTypes.string.isRequired,
+  missionId: PropTypes.string.isRequired,
 };
 
 export default Mission;

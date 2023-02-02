@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchRockets = createAsyncThunk(
@@ -42,16 +41,15 @@ const rocketsSlice = createSlice({
         const data = action.payload;
         const rocketsList = [];
         data.forEach((element) => {
-          const {
-            id, name, description, flickr_images,
-          } = element;
-          rocketsList.push({
-            id,
-            name,
-            description,
-            flickr_images,
-            reserved: false,
-          });
+          // const {id, name, description, imgs = {flickr_images}} = element;
+          // rocketsList.push({
+          //   id,
+          //   name,
+          //   description,
+          //   imgs,
+          //   reserved: false,
+          // });
+          rocketsList.push({ ...element, reserved: false });
         });
         return { ...state, contents: rocketsList, status: 'idle' };
       });

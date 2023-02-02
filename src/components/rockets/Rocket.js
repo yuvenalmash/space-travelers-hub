@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import styles from './css/Rocket.module.scss';
@@ -7,14 +6,14 @@ import {
   cancelReservation,
 } from '../../redux/rockets/rocketsSlice';
 
-const Button = ({ isReserved, id }) => {
+const Button = ({ rocketId, isReserved }) => {
   const dispatch = useDispatch();
   if (isReserved) {
     return (
       <button
         type="button"
         className={styles.cancel__btn}
-        onClick={() => dispatch(cancelReservation(id))}
+        onClick={() => dispatch(cancelReservation(rocketId))}
       >
         Cancel Reservation
       </button>
@@ -24,7 +23,7 @@ const Button = ({ isReserved, id }) => {
     <button
       type="button"
       className={styles.reserve__btn}
-      onClick={() => dispatch(makeReservation(id))}
+      onClick={() => dispatch(makeReservation(rocketId))}
     >
       Reserve Rocket
     </button>
@@ -33,19 +32,16 @@ const Button = ({ isReserved, id }) => {
 
 const Rocket = (props) => {
   const { rocket } = props;
-  const {
-    id, name, description, flickr_images, reserved,
-  } = rocket;
 
   return (
     <div className={styles.rocketContainer}>
       <img
-        src={flickr_images[1]}
+        src={rocket.flickr_images[1]}
         alt="rocket img"
         className={styles.rocketImg}
       />
       <div className={styles.col2}>
-        <h2>{name}</h2>
+        <h2>{rocket.name}</h2>
         <div
           style={{
             display: 'flex',
@@ -53,10 +49,10 @@ const Rocket = (props) => {
             alignItems: 'center',
           }}
         >
-          {reserved && <p className={styles.reservedText}>Reserved</p>}
-          <p>{description}</p>
+          {rocket.reserved && <p className={styles.reservedText}>Reserved</p>}
+          <p>{rocket.description}</p>
         </div>
-        <Button id={id} isReserved={reserved} />
+        <Button rocketId={rocket.id} isReserved={rocket.reserved} />
       </div>
     </div>
   );
@@ -73,7 +69,7 @@ Rocket.propTypes = {
 };
 Button.propTypes = {
   isReserved: PropTypes.bool.isRequired,
-  id: PropTypes.string.isRequired,
+  rocketId: PropTypes.string.isRequired,
 };
 
 export default Rocket;
