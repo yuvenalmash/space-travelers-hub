@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import styles from './css/Rocket.module.scss';
@@ -12,13 +11,21 @@ const Button = ({ isReserved, id }) => {
   const dispatch = useDispatch();
   if (isReserved) {
     return (
-      <button type="button" onClick={() => dispatch(cancelReservation(id))}>
+      <button
+        type="button"
+        className={styles.cancel__btn}
+        onClick={() => dispatch(cancelReservation(id))}
+      >
         Cancel Reservation
       </button>
     );
   }
   return (
-    <button type="button" onClick={() => dispatch(makeReservation(id))}>
+    <button
+      type="button"
+      className={styles.reserve__btn}
+      onClick={() => dispatch(makeReservation(id))}
+    >
       Reserve Rocket
     </button>
   );
@@ -35,7 +42,16 @@ const Rocket = (props) => {
       <img src={flickr_images} alt="rocket img" className={styles.rocketImg} />
       <div className={styles.col2}>
         <h2>{name}</h2>
-        <p>{description}</p>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}
+        >
+          {reserved && <p className={styles.reservedText}>Reserved</p>}
+          <p>{description}</p>
+        </div>
         <Button id={id} isReserved={reserved} />
       </div>
     </div>
