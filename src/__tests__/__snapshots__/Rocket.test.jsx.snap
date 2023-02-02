@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display Rocket component it matches snapshot 1`] = `
+<div
+  className="rocketContainer"
+>
+  <img
+    alt="rocket img"
+    className="rocketImg"
+  />
+  <div
+    className="col2"
+  >
+    <h2>
+      falcon1
+    </h2>
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <p>
+        description
+      </p>
+    </div>
+    <button
+      className="reserve__btn"
+      onClick={[Function]}
+      type="button"
+    >
+      Reserve Rocket
+    </button>
+  </div>
+</div>
+`;

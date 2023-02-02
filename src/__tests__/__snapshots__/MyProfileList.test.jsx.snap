@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display myProfileList component it matches snapshot 1`] = `
+Array [
+  <section>
+    <h2>
+      My Missions
+    </h2>
+    <ul />
+  </section>,
+  <section>
+    <h2>
+      My Rockets
+    </h2>
+    <ul />
+  </section>,
+]
+`;
