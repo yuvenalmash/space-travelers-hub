@@ -17,7 +17,8 @@ const MissionsList = () => {
     if (contents.length === 0 && status === 'idle') {
       dispatch(fetchMissions());
     }
-  }, [dispatch, status]);
+  }, [dispatch, status, contents.length]);
+
   const missions = useSelector(selectAllMissions);
   return (
     <table className="mission-table">
