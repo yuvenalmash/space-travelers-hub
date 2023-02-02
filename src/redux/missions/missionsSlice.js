@@ -22,19 +22,17 @@ const missionsSlice = createSlice({
       const id = action.payload;
       const newContents = state.contents.map((mission) => {
         if (mission.mission_id !== id) return mission;
-        return { ...mission, reserved: true };
+        return { ...mission, joined: true };
       });
       return { ...state, contents: newContents };
     },
     leaveMission: (state, action) => {
-      const { id } = action.payload;
-      const newState = { ...state };
-      if (newState.mission_id === id) {
-        newState.mission_id = { ...newState.mission_id, reserved: false };
-      }
-      // eslint-disable-next-line
-      console.log('Leave Mission Action:', state);
-      return newState;
+      const id = action.payload;
+      const newContents = state.contents.map((mission) => {
+        if (mission.mission_id !== id) return mission;
+        return { ...mission, joined: false };
+      });
+      return { ...state, contents: newContents };
     },
   },
 
@@ -54,9 +52,10 @@ const missionsSlice = createSlice({
             mission_id,
             mission_name,
             description,
+            joined: false,
           });
         });
-        return { ...state, contents: missionsList };
+        return { ...state, contents: missionsList, status: 'idle' };
       });
   },
 });
