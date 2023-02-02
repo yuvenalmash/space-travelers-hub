@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Mission from './Mission';
+
 import {
   fetchMissions,
   selectAllMissions,
@@ -10,11 +11,14 @@ import {
 const MissionsList = () => {
   const dispatch = useDispatch();
   const status = useSelector(selectState);
+  const contents = useSelector((state) => state.missions.contents);
+
   useEffect(() => {
-    if (status === 'idle') {
+    if (contents.length === 0 && status === 'idle') {
       dispatch(fetchMissions());
     }
-  }, [dispatch, status]);
+  }, [dispatch, status, contents.length]);
+
   const missions = useSelector(selectAllMissions);
   return (
     <table className="mission-table">

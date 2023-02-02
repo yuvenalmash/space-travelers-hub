@@ -1,16 +1,27 @@
 /* eslint-disable camelcase */
-/* eslint-disable react/prop-types */
+
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import styles from './css/Rocket.module.scss';
-import { makeReservation, cancelReservation } from '../../redux/rockets/rocketsSlice';
+import {
+  makeReservation,
+  cancelReservation,
+} from '../../redux/rockets/rocketsSlice';
 
 const Button = ({ isReserved, id }) => {
   const dispatch = useDispatch();
   if (isReserved) {
-    return <button type="button" onClick={() => dispatch(cancelReservation(id))}>Cancel Reservation</button>;
+    return (
+      <button type="button" onClick={() => dispatch(cancelReservation(id))}>
+        Cancel Reservation
+      </button>
+    );
   }
-  return <button type="button" onClick={() => dispatch(makeReservation(id))}>Reserve Rocket</button>;
+  return (
+    <button type="button" onClick={() => dispatch(makeReservation(id))}>
+      Reserve Rocket
+    </button>
+  );
 };
 
 const Rocket = (props) => {
@@ -39,6 +50,10 @@ Rocket.propTypes = {
     flickr_images: PropTypes.arrayOf(PropTypes.string),
     reserved: PropTypes.bool,
   }).isRequired,
+};
+Button.propTypes = {
+  isReserved: PropTypes.bool.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Rocket;

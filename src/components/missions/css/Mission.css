@@ -50,6 +50,7 @@ tr:nth-child(odd) {
 .btn {
   padding: 8px 10px;
   background-color: inherit;
+  cursor: pointer;
 }
 
 .failure__button {

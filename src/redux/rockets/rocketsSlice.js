@@ -37,9 +37,7 @@ const rocketsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchRockets.pending, (state) => (
-        { ...state, status: 'loading' }
-      ))
+      .addCase(fetchRockets.pending, (state) => ({ ...state, status: 'loading' }))
       .addCase(fetchRockets.fulfilled, (state, action) => {
         const data = action.payload;
         const rocketsList = [];
@@ -48,7 +46,11 @@ const rocketsSlice = createSlice({
             id, name, description, flickr_images,
           } = element;
           rocketsList.push({
-            id, name, description, flickr_images, reserved: false,
+            id,
+            name,
+            description,
+            flickr_images,
+            reserved: false,
           });
         });
         return { ...state, contents: rocketsList, status: 'idle' };

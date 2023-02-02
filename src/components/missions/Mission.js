@@ -2,27 +2,38 @@
 import PropTypes from 'prop-types';
 import './css/Mission.css';
 import { useDispatch } from 'react-redux';
-import React, { useState } from 'react';
-// import store from '../../redux/ConfigureStore';
+
 import { joinMission, leaveMission } from '../../redux/missions/missionsSlice';
 
-const Mission = (props) => {
-  const { mission } = props;
-  const { mission_id, mission_name, description } = mission;
+const Button = ({ isJoined, mission_id }) => {
   const dispatch = useDispatch();
 
-  const [success, setSuccess] = useState(false);
-
-  const handleJoinMission = () => {
-    dispatch(joinMission({ id: mission_id }));
-    // console.log(store.getState());
-    setSuccess(true);
-  };
-
-  const handleLeaveMission = () => {
-    dispatch(leaveMission({ id: mission_id }));
-    // console.log(store.getState());
-  };
+  if (isJoined) {
+    return (
+      <button
+        className="btn failure__button"
+        type="button"
+        onClick={() => dispatch(leaveMission(mission_id))}
+      >
+        Leave Mission
+      </button>
+    );
+  }
+  return (
+    <button
+      className=" btn success__button"
+      type="button"
+      onClick={() => dispatch(joinMission(mission_id))}
+    >
+      Join Mission
+    </button>
+  );
+};
+const Mission = (props) => {
+  const { mission } = props;
+  const {
+    mission_id, mission_name, description, joined,
+  } = mission;
 
   return (
     <tr>
@@ -33,23 +44,7 @@ const Mission = (props) => {
         <p className="active__member">Active member</p>
       </td>
       <td>
-        <button
-          className=" btn success__button"
-          type="button"
-          onClick={handleJoinMission}
-        >
-          Join Mission
-        </button>
-        {success && (
-          <p className="success-message">Successfully joined the mission! 🚀</p>
-        )}
-        <button
-          className="btn failure__button"
-          type="button"
-          onClick={handleLeaveMission}
-        >
-          Leave Mission
-        </button>
+        <Button mission_id={mission_id} isJoined={joined} />
       </td>
     </tr>
   );
@@ -57,10 +52,15 @@ const Mission = (props) => {
 
 Mission.propTypes = {
   mission: PropTypes.shape({
-    mission_id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    mission_id: PropTypes.string,
     mission_name: PropTypes.string,
     description: PropTypes.string,
+    joined: PropTypes.bool,
   }).isRequired,
+};
+Button.propTypes = {
+  isJoined: PropTypes.bool.isRequired,
+  mission_id: PropTypes.string.isRequired,
 };
 
 export default Mission;
