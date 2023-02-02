@@ -1,11 +1,17 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { selectAllRockets } from '../../redux/rockets/rocketsSlice';
 import { selectAllMissions } from '../../redux/missions/missionsSlice';
 
 const RocketItem = ({ rocketName }) => <li>{rocketName}</li>;
+RocketItem.propTypes = {
+  rocketName: PropTypes.string.isRequired,
+};
 
 const MissionItem = ({ missionName }) => <li>{missionName}</li>;
+MissionItem.propTypes = {
+  missionName: PropTypes.string.isRequired,
+};
 
 const MyProfileLists = () => {
   const rockets = useSelector(selectAllRockets);
