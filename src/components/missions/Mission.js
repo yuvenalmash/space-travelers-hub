@@ -40,8 +40,8 @@ const Mission = (props) => {
       <td>{mission_name}</td>
       <td>{description}</td>
       <td>
-        <p className="not__member">Not a member</p>
-        <p className="active__member">Active member</p>
+        {!joined && <p className="not__member">Not a member</p>}
+        {joined && <p className="active__member">Active member</p>}
       </td>
       <td>
         <Button mission_id={mission_id} isJoined={joined} />
