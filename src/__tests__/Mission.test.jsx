@@ -12,7 +12,7 @@ describe('Display mission component', () => {
   test('it matches snapshot', () => {
     const tree = renderer.create(
       <Provider store={store}>
-        <Mission mission = {mission} />
+        <table><tbody><Mission mission = {mission} /></tbody></table>
       </Provider>
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe('Display mission component', () => {
   test('should return  Mission Component', () => {
     render(
       <Provider store={store}>
-        <Mission mission = {mission} />
+        <table><tbody><Mission mission = {mission} /></tbody></table>
       </Provider>
     );
   })
@@ -31,7 +31,7 @@ describe('Display Active banner text', () => {
   test('Active banner to display \'Active member\'', () => {
     render(
       <Provider store={store}>
-        <Mission mission = {mission2} />
+        <table><tbody><Mission mission = {mission2} /></tbody></table>
       </Provider>
     );
     expect(screen.getByText('Active member')).toBeInTheDocument();
@@ -40,7 +40,7 @@ describe('Display Active banner text', () => {
   test('Active banner to display \'NOT A MEMBER\'', () => {
     render(
       <Provider store={store}>
-        <Mission mission = {mission} />
+        <table><tbody><Mission mission = {mission} /></tbody></table>
       </Provider>
     );
     expect(screen.getByText('Not a member')).toBeInTheDocument();

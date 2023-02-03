@@ -1,28 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Display mission component it matches snapshot 1`] = `
-<tr>
-  <td>
-    Thaicom
-  </td>
-  <td>
-    description
-  </td>
-  <td>
-    <p
-      className="not__member"
-    >
-      Not a member
-    </p>
-  </td>
-  <td>
-    <button
-      className=" btn success__button"
-      onClick={[Function]}
-      type="button"
-    >
-      Join Mission
-    </button>
-  </td>
-</tr>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        Thaicom
+      </td>
+      <td>
+        description
+      </td>
+      <td>
+        <p
+          className="not__member"
+        >
+          Not a member
+        </p>
+      </td>
+      <td>
+        <button
+          className=" btn success__button"
+          onClick={[Function]}
+          type="button"
+        >
+          Join Mission
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;
