@@ -1,0 +1,60 @@
+.header nav {
+  height: 100%;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a.active {
+  padding-bottom: 0.25rem;
+  text-decoration: underline;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #b3b3b3;
+  padding-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.planet-img {
+  animation: rotate-planet 4s linear infinite;
+}
+
+@keyframes rotate-planet {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav__list {
+  margin-right: 32px;
+  display: flex;
+  gap: 12px;
+}
+
+.nav__link {
+  color: #00bfff !important;
+}
+
+.nav__divider {
+  display: inline-block;
+  padding: 0 10px;
+  color: #808080 !important;
+}

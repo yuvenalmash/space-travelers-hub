@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+.success-message {
+  color: greenyellow;
+}
+
+.mission-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 50px;
+}
+
+.mission-table th,
+.mission-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.mission-table td {
+  width: 25%;
+}
+
+.mission-table td:nth-child(2) {
+  width: 50%;
+}
+
+.mission-table th {
+  text-align: center;
+  background-color: #fff !important;
+}
+
+.mission-table td:first-child {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  width: 15%;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+.mission-table td:nth-child(3) {
+  width: 15%;
+}
+
+.btn {
+  padding: 8px 10px;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.failure__button {
+  color: red;
+  border-color: red;
+}
+
+.not__member {
+  text-transform: uppercase;
+  background-color: #999;
+  color: white;
+  font-size: 16px;
+}
+
+.active__member {
+  text-transform: capitalize;
+  color: #fff;
+  background-color: #00b300;
+}
+
+.active__member,
+.not__member {
+  border-radius: 5px;
+  padding: 4px;
+  display: inline-block;
+  font-weight: bold;
+}

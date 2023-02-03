@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display missionsList component it matches snapshot 1`] = `
+<table
+  className="mission-table"
+>
+  <thead>
+    <tr>
+      <th>
+        Mission
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Status
+      </th>
+      <th>
+         
+      </th>
+    </tr>
+  </thead>
+  <tbody />
+</table>
+`;

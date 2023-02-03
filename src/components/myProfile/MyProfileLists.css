@@ -1,0 +1,13 @@
+li {
+  border-bottom: 1px solid black;
+  padding: 10px;
+  list-style: none;
+}
+
+h2 {
+  margin-bottom: 12px;
+}
+
+.myprofile__list {
+  border: 1px solid black;
+}
